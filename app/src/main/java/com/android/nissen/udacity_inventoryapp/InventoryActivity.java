@@ -80,7 +80,6 @@ public class InventoryActivity extends AppCompatActivity {
                         quantity = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_QUANTITY));
                         TextView tQuantity = (TextView) findViewById(R.id.text_quantity);
                         tQuantity.setText("" + quantity);
-                        Toast.makeText(InventoryActivity.this, "Refresh!", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(InventoryActivity.this, "It's empty! Order Now!", Toast.LENGTH_SHORT).show();
                     }
@@ -131,7 +130,6 @@ public class InventoryActivity extends AppCompatActivity {
                         quantity = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_QUANTITY));
                         TextView tQuantity = (TextView) findViewById(R.id.text_quantity);
                         tQuantity.setText("" + quantity);
-                        Toast.makeText(InventoryActivity.this, "Refresh!", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(InventoryActivity.this, "It's empty! Order Now!", Toast.LENGTH_SHORT).show();
                     }
