@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void insertInitialData(){
+    public void insertInitialData() {
         InventoryDbHelper db = new InventoryDbHelper(this);
         String productName = "Staples";
         int productPrice = 15;
@@ -135,11 +135,12 @@ public class MainActivity extends AppCompatActivity {
         byte[] byteArray = stream.toByteArray();
         db.insertData(productName, productQty, productPrice, byteArray);
     }
-    
+
     @Override
-public void onRestart(){
-super.onRestart();
-finish();
-startAvtivity(getIntent());
-}
+    public void onRestart() {
+        super.onRestart();
+        finish();
+        Intent restartIntent = getIntent();
+        startActivity(restartIntent);
+    }
 }

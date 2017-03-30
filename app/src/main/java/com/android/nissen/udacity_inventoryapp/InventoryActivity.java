@@ -189,12 +189,13 @@ public class InventoryActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
         img.setImageBitmap(bitmap);
     }
-    
+
     @Override
-public void onRestart(){
-super.onRestart();
-finish();
-startAvtivity(getIntent());
-}
+    public void onRestart() {
+        super.onRestart();
+        finish();
+        Intent restartIntent = getIntent();
+        startActivity(restartIntent);
+    }
 
 }
