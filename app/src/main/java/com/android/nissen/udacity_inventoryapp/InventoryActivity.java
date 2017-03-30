@@ -49,13 +49,14 @@ public class InventoryActivity extends AppCompatActivity {
         int pos = productName.indexOf("\nQuantity");
         final String subProductName = productName.substring(0, pos);
 
+
         final Cursor cur = db.getData(subProductName);
 
         if (cur.moveToFirst()) {
 
             // Set Product Name
             TextView tName = (TextView) findViewById(R.id.text_name);
-            tName.setText(subProductName);
+            tName.setText(" " + subProductName);
 
             // Set Price
             int price = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_PRICE));
@@ -65,7 +66,7 @@ public class InventoryActivity extends AppCompatActivity {
             // Set Quantity
             int quantity = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_QUANTITY));
             TextView tQuantity = (TextView) findViewById(R.id.text_quantity);
-            tQuantity.setText("" + quantity);
+            tQuantity.setText(String.valueOf(quantity));
         }
 
         // Decrease quantity by 1
@@ -79,11 +80,17 @@ public class InventoryActivity extends AppCompatActivity {
                         db.updateData(subProductName, quantity, -1);
                         quantity = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_QUANTITY));
                         TextView tQuantity = (TextView) findViewById(R.id.text_quantity);
-                        tQuantity.setText("" + quantity);
+                        tQuantity.setText(String.valueOf(quantity));
                     } else {
                         Toast.makeText(InventoryActivity.this, "It's empty! Order Now!", Toast.LENGTH_SHORT).show();
                     }
                 }
+                Intent intent = getIntent();
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
             }
         });
 
@@ -97,9 +104,14 @@ public class InventoryActivity extends AppCompatActivity {
                     db.updateData(subProductName, quantity, 1);
                     quantity = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_QUANTITY));
                     TextView tQuantity = (TextView) findViewById(R.id.text_quantity);
-                    tQuantity.setText("" + quantity);
-                    Toast.makeText(InventoryActivity.this, "Refresh!", Toast.LENGTH_SHORT).show();
+                    tQuantity.setText(String.valueOf(quantity));
                 }
+                Intent intent = getIntent();
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
             }
         });
 
@@ -129,11 +141,17 @@ public class InventoryActivity extends AppCompatActivity {
                         db.updateData(subProductName, quantity, -1);
                         quantity = cur.getInt(cur.getColumnIndex(InventoryContract.InventoryEntry.COLUMN_QUANTITY));
                         TextView tQuantity = (TextView) findViewById(R.id.text_quantity);
-                        tQuantity.setText("" + quantity);
+                        tQuantity.setText(String.valueOf(quantity));
                     } else {
                         Toast.makeText(InventoryActivity.this, "It's empty! Order Now!", Toast.LENGTH_SHORT).show();
                     }
                 }
+                Intent intent = getIntent();
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
             }
         });
 
