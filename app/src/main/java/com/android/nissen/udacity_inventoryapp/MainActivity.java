@@ -135,4 +135,11 @@ public class MainActivity extends AppCompatActivity {
         byte[] byteArray = stream.toByteArray();
         db.insertData(productName, productQty, productPrice, byteArray);
     }
+    
+    @Override
+public void onRestart(){
+super.onRestart();
+finish();
+startAvtivity(getIntent());
+}
 }
